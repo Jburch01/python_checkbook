@@ -87,3 +87,21 @@ def get_time():
     return time
 
 
+def exit():
+    exit = ''
+    while exit != 'y' or exit != 'n':
+        exit = input("Are you sure you want to quit? 'y or n' ")
+        if exit.lower() == 'y':
+            balance = get_balance()
+            print(f"Your ending balance is: {balance} \n Thanks have a good day! Goodbye")
+            clear_terminal()
+            return False
+        elif exit.lower() == 'n':
+            clear_terminal()
+            return True
+        else:
+            print('Not a valid option')
+
+
+
+
