@@ -45,9 +45,10 @@ def run_atm():
                 print('Not a valid option\n')
         elif question == '5':
             clear_terminal()
-            balance = get_balance()
-            print(f"Your ending balance is: {balance} \n Thanks have a good day! Goodbye")
-            inquiry = False
+            inquiry = exit()
+
+
+
         else:
             clear_terminal()
             print("Not a valid option, please try again")
