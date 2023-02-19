@@ -1,6 +1,6 @@
 import csv
 import os
-from prettytable import from_csv
+from prettytable import *
 
 cols = ['category', 'amount', 'balance', 'time', 'date']
 transaction = {}
@@ -33,6 +33,14 @@ def get_history():
     print(table)
 
 
+def search(a):
+    with open('checkbookHistory.csv', 'r') as file:
+        history = csv.reader(file)
+        table = PrettyTable(next(history))
+        for row in history:
+            if row[0] == a:
+                table.add_row(row)
+        print(table)
 
 
 
