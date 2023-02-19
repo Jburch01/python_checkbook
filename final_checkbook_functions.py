@@ -11,7 +11,7 @@ def view():
     print(f"Your current balance is: {balance}\n")
 
 
-def withdraw(num):
+def withdraw(num, descript):
     balance = float(get_balance())
     if num > balance:
         print("Sorry you to broke for that!\n")
@@ -20,25 +20,25 @@ def withdraw(num):
         balance = round(balance, 2)
         str(change_balance(balance))
         if os.path.exists('checkbookHistory.csv'):
-            add_history(num, "Withdraw", balance, get_time(), get_date())
+            add_history(num, descript, "Withdraw", balance, get_time(), get_date())
         else:
             create_csv()
-            add_history(num, "Withdraw", balance, get_time(), get_date())
+            add_history(num, descript, "Withdraw", balance, get_time(), get_date())
 
 
 
 
-def deposit(num):
+def deposit(num, descript):
     balance = float(get_balance())
     balance += num
     balance = round(balance, 2)
     print(balance)
     change_balance(balance)
     if os.path.exists('checkbookHistory.csv'):
-        add_history(num, "Deposit", balance, get_time(), get_date())
+        add_history(num, descript, "Deposit", balance, get_time(), get_date())
     else:
         create_csv()
-        add_history(num, "Deposit", balance, get_time(), get_date())
+        add_history(num, descript,"Deposit", balance, get_time(), get_date())
 
 
 def get_balance():
@@ -69,8 +69,8 @@ def clear_terminal():
 def more_options():
     more_questions = input(
         "1) View all balance history\n"
-        "2) View deposit history\n"
-        "3) View withdraw history\n"
+        "2) View all  deposit history\n"
+        "3) View all withdraw history\n"
     )
     return more_questions
 
@@ -102,8 +102,9 @@ def exit_checkbook():
         else:
             print('Not a valid option')
 
-
-
+def description(a):
+    descript = input(f"input description of {a}: \n")
+    return descript
 
 
 
