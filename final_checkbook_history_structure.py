@@ -34,14 +34,25 @@ def get_history():
     print(table)
 
 
-def search(category):
-    with open('checkbookHistory.csv', 'r') as file:
-        history = csv.reader(file)
-        table = PrettyTable(next(history))
-        for row in history:
-            if row[0] == category:
-                table.add_row(row)
-        print(table)
-
+def search(by_type):
+    if by_type == "Deposit" or by_type == "Withdraw":
+        with open('checkbookHistory.csv', 'r') as file:
+            history = csv.reader(file)
+            table = PrettyTable(next(history))
+            for row in history:
+                if row[0] == by_type:
+                    table.add_row(row)
+            print(table)
+    else:
+        date = int(input("Please put in date you would like to search for in this format\n"
+                     "eg: Jan 1, 2023 as \n"
+                     "20230101\n "))
+        with open('checkbookHistory.csv', 'r') as file:
+            history = csv.reader(file)
+            table = PrettyTable(next(history))
+            for row in history:
+                if int(row[5].replace('-', '')) == date:
+                    table.add_row(row)
+            print(table)
 
 
