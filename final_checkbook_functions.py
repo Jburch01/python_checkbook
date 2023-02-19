@@ -69,8 +69,8 @@ def clear_terminal():
 def more_options():
     more_questions = input(
         "1) View all balance history\n"
-        # "2) View deposit history\n"
-        # "3) View withdraw history\n"
+        "2) View deposit history\n"
+        "3) View withdraw history\n"
     )
     return more_questions
 
@@ -87,20 +87,26 @@ def get_time():
     return time
 
 
-def exit():
+def exit_checkbook():
     exit = ''
     while exit != 'y' or exit != 'n':
         exit = input("Are you sure you want to quit? 'y or n' ")
         if exit.lower() == 'y':
+            clear_terminal()
             balance = get_balance()
             print(f"Your ending balance is: {balance} \n Thanks have a good day! Goodbye")
-            clear_terminal()
             return False
         elif exit.lower() == 'n':
             clear_terminal()
             return True
         else:
             print('Not a valid option')
+
+
+
+
+
+
 
 
 
