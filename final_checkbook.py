@@ -41,14 +41,15 @@ def run_atm():
             if more == "1":
                 clear_terminal()
                 get_history()
+            elif more == "2":
+                search("Deposit")
+            elif more == "3":
+                search("Withdraw")
             else:
                 print('Not a valid option\n')
         elif question == '5':
             clear_terminal()
-            inquiry = exit()
-
-
-
+            inquiry = exit_checkbook()
         else:
             clear_terminal()
             print("Not a valid option, please try again")
