@@ -71,6 +71,7 @@ def more_options():
         "1) View all balance history\n"
         "2) View all  deposit history\n"
         "3) View all withdraw history\n"
+        "4) View all by specific date\n"
     )
     return more_questions
 
