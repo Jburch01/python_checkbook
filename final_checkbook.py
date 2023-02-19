@@ -47,6 +47,8 @@ def run_atm():
                 search("Deposit")
             elif more == "3":
                 search("Withdraw")
+            elif more == "4":
+                search("date")
             else:
                 print('Not a valid option\n')
         elif question == '5':
