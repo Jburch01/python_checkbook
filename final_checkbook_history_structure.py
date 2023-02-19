@@ -2,7 +2,7 @@ import csv
 import os
 from prettytable import *
 
-cols = ['category', 'amount', 'balance', 'time', 'date']
+cols = ['category', 'description', 'amount', 'balance', 'time', 'date']
 transaction = {}
 
 
@@ -12,8 +12,9 @@ def create_csv():
         writer.writeheader()
 
 
-def add_history(amount, category, balance, time, date):
+def add_history(amount, descript, category, balance, time, date):
     transaction["amount"] = amount
+    transaction["description"] = descript
     transaction["category"] = category
     transaction["balance"] = balance
     transaction['time'] = time
@@ -33,12 +34,12 @@ def get_history():
     print(table)
 
 
-def search(a):
+def search(category):
     with open('checkbookHistory.csv', 'r') as file:
         history = csv.reader(file)
         table = PrettyTable(next(history))
         for row in history:
-            if row[0] == a:
+            if row[0] == category:
                 table.add_row(row)
         print(table)
 
