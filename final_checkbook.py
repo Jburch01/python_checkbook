@@ -20,17 +20,19 @@ def run_atm():
             if balance == "0.00" or balance == '0.0':
                 print(f"You can't withdraw with a balance of: {balance}\n")
             else:
+                descript = description("Withdraw")
                 amount = input("How much would you like to withdraw? ")
                 if check_input(amount):
-                    withdraw(float(amount))
+                    withdraw(float(amount), descript)
                 else:
                     clear_terminal()
                     print("Please put input a number\n")
         elif question == '3':
             clear_terminal()
+            descript = description("Deposit")
             amount = (input("How much would you like to deposit? "))
             if check_input(amount):
-                deposit(float(amount))
+                deposit(float(amount), descript)
             else:
                 clear_terminal()
                 print("Please put input a number\n")
